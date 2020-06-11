@@ -67,7 +67,7 @@ async function main() {
                 core.endGroup();
                 core.startGroup('Compile and install Chicken');
                 await exec(`make -C chicken-${chickenVersion} PLATFORM=linux`);
-                await exec(`sudo make -C chicken-${chickenVersion} install`);
+                await exec(`sudo make -C chicken-${chickenVersion} PLATFORM=linux install`);
                 core.endGroup();
                 break;
         }
