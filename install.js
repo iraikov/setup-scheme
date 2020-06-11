@@ -62,7 +62,7 @@ async function main() {
                 break;
             case'chicken':
                 core.startGroup('Download and unpack Chicken source code');
-                await exec(`wget https://code.call-cc.org/releases/${chickenVersion}/chicken-${chickenVersion}.tar.gz`);
+                await exec(`wget -N https://code.call-cc.org/releases/${chickenVersion}/chicken-${chickenVersion}.tar.gz`);
                 await exec(`tar zxf chicken-${chickenVersion}.tar.gz`);
                 core.endGroup();
                 core.startGroup('Compile and install Chicken');
