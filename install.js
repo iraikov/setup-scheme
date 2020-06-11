@@ -12,7 +12,7 @@ async function main() {
     const implementation = core.getInput('implementation', {required: true});
     const version = core.getInput('version');
     const option = core.getInput('option');
-    const chickenVersion = core.getInput('chicken-version') || '5.2.0';
+    const chickenVersion = version || '5.2.0';
     
     if (process.platform === 'darwin') {
         switch (implementation) {
