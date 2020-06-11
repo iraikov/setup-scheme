@@ -12,6 +12,7 @@ async function main() {
     const implementation = core.getInput('implementation', {required: true});
     const version = core.getInput('version');
     const option = core.getInput('option');
+    const chickenVersion = core.getInput('chicken-version') || '5.2.0';
     
     if (process.platform === 'darwin') {
         switch (implementation) {
@@ -58,6 +59,15 @@ async function main() {
                 break;
             case'guile':
                 await exec('sudo apt install guile-2.2');
+                break;
+            case'chicken':
+                core.startGroup('Download Chicken source code');
+                await exec(`wget https://code.call-cc.org/releases/${chickenVersion}/chicken-${chickenVersion}.tar.gz`);
+                core.endGroup();
+                core.startGroup('Compile and install Chicken');
+                await exec('make PLATFORM=linux');
+                await exec('sudo make install');
+                core.endGroup();
                 break;
         }
         
