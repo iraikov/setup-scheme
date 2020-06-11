@@ -42,7 +42,7 @@ Grebil Scheme              grebil           X
 MIT Scheme                 mit              X               X
 Racket                     racket           X               X
 Guile Scheme               guile            X               X
-Chicken Scheme             chicken          X
+Chicken Scheme             chicken          X               X
 ```
 
 

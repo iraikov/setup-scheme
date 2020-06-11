@@ -132,6 +132,21 @@ jobs:
 
     - run: scheme --version
 
+  Linux-Chicken:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@master
+
+    - name: use Setup-Scheme
+      uses: iraikov/setup-scheme@master
+      with:
+        implementation: chicken
+
+    - run: /usr/local/bin/csi --version
+
   Linux-Gambit:
 
     runs-on: ubuntu-latest
