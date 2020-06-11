@@ -66,9 +66,8 @@ async function main() {
                 await exec(`tar zxf chicken-${chickenVersion}.tar.gz`);
                 core.endGroup();
                 core.startGroup('Compile and install Chicken');
-                await exec(`cd chicken-${chickenVersion}`);
-                await exec('make PLATFORM=linux');
-                await exec('sudo make install');
+                await exec(`make -C chicken-${chickenVersion} PLATFORM=linux`);
+                await exec(`sudo make -C chicken-${chickenVersion} install`);
                 core.endGroup();
                 break;
         }
